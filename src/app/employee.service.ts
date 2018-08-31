@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IEmployee } from './employee';
 import { Observable } from 'rxjs'
+import { map } from 'rxjs/operators'; 
 
 @Injectable({
   providedIn: 'root'
@@ -23,4 +24,28 @@ export class EmployeeService {
 	]
 	*/
   }
+
+  getCurrentTime() {
+  	return this.http.get('http://date.jsontest.com ').pipe(
+  			map(res => res)
+  		)
+  }
+
+  postJSON() {
+  	//const headers = new Headers().set("Content-Type", "application/json");
+  	var json = JSON.stringify({var1: 'test', var2 : 3});
+  	var params = "json=" + json;
+  	var headers = new Headers();
+  	headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+  	return this.http.post('http://jsonplaceholder.typicode.com/posts',
+  		{
+	  		title: 'foo',
+	      body: 'bar',
+	      userId: 1
+  		})
+  		.pipe(map(res=> res, 
+  			err => {console.log("error")}));
+	  }
+
 }

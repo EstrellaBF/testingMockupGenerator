@@ -2,3 +2,12 @@
 <ul *ngFor="let employee of employees">
   <li>{{employee.name}}</li>
 </ul>
+
+
+
+<button (click) = "onTestGet()">Test Get Request</button> <br>
+<p>output: {{getData}}</p>
+<hr>
+
+<button (click) = "onTestPost()">Test Get Request</button> <br>
+<p>output: {{postData}}</p>

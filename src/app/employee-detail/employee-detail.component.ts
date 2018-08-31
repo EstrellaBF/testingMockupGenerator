@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../employee.service';
 
@@ -8,11 +9,17 @@ import { EmployeeService } from '../employee.service';
   styleUrls: ['./employee-detail.component.css']
 })
 export class EmployeeDetailComponent implements OnInit {
-	public employees = []
+	public employees = [];
+
   constructor(private employeeService : EmployeeService ) { }
 
+  
   ngOnInit() {
   	//this.employees = this.employeeService.getEmployees();
+  	this.employeeService.getEmployees()
+  		.subscribe(data => this.employees  = data, 
+  			error => console.log(error)
+  		);
   }
 
 }
