@@ -33,14 +33,17 @@ export class EmployeeService {
 
   postJSON() {
   	//const headers = new Headers().set("Content-Type", "application/json");
+  	/*
   	var json = JSON.stringify({var1: 'test', var2 : 3});
   	var params = "json=" + json;
   	var headers = new Headers();
-  	headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
+  	headers.append('Content-Type', 'application/x-www-form-urlencoded');
+	*/
+	
   	return this.http.post('http://jsonplaceholder.typicode.com/posts',
   		{
-	  		title: 'foo',
+	  	  title: 'foo',
 	      body: 'bar',
 	      userId: 1
   		})
